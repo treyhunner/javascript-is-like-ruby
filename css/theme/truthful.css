@@ -308,3 +308,25 @@ section.has-dark-background a:hover {
  *********************************************/
 .reveal .slide-number {
   color: #630FB7; }
+
+
+/* Ruby Talk Customizations */
+pre.ruby code {
+  box-sizing: border-box;
+  background-image: url('../../ruby-logo.svg');
+  background-repeat: no-repeat;
+  background-position: right 5px top 5px;
+  background-size: contain;
+  background-size: 50px auto;
+  min-height: 70px;
+}
+
+pre.javascript code {
+  box-sizing: border-box;
+  background-image: url('../../js-logo.svg');
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: contain;
+  background-size: 60px auto;
+  min-height: 70px;
+}
