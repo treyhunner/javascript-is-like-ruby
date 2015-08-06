@@ -317,7 +317,7 @@ pre.ruby code {
   background-repeat: no-repeat;
   background-position: right 5px top 5px;
   background-size: contain;
-  background-size: 50px auto;
+  background-size: 40px auto;
   min-height: 70px;
 }
 
@@ -327,6 +327,6 @@ pre.javascript code {
   background-repeat: no-repeat;
   background-position: right top;
   background-size: contain;
-  background-size: 60px auto;
+  background-size: 50px auto;
   min-height: 70px;
 }
