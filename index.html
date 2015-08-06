@@ -48,7 +48,9 @@
             <small><a href="http://treyhunner.com">Trey Hunner</a> / <a href="https://twitter.com/treyhunner">@treyhunner</a></small>
           </p>
           <aside class="notes" data-markdown>
-            My name is Trey.  I'm going to show you something.
+            My name is Trey.  I do front-end web development and I only know enough Ruby to be dangerous.
+
+            I'm going to show you some new JavaScript features that you can start using today to make your JavaScript code a little more readable.
           </aside>
         </section>
 
@@ -85,13 +87,13 @@
             </tbody>
           </table>
           <aside class="notes" data-markdown>
-            First, some terminology.
-
             ECMAScript is the language specification that JavaScript is based on.
 
-            ECMAScript 6 is the new version that was finalized last month.
+            In this presentation I'm going to show off features that were added in ECMAScript 6, also known as ECMAScript 2015.
 
-            Earlier this year, ECMAScript 6 was renamed to ECMAScript 2015.  During this talk I'll use ECMAScript 2015 and ECMAScript 6 interchangeably.
+            I will be going a little quickly, so you probably won't catch everything but hopefully you'll learn something new.
+
+            ECMAScript 6 isn't supported by browsers, but you **can** start using it today...
           </aside>
         </section>
 
@@ -99,9 +101,11 @@
           <a href="http://babeljs.io/"><img src="babel-logo.svg" class="no-style"></a>
           <h3>Use next generation JavaScript, today.</h3>
           <aside class="notes" data-markdown>
-            This new language spec isn't supported by browsers, but you **can** start using it today.
+            You just need to use Babel.
 
-            You just need to use Babel.  Babel allows you to compile your ES6 code down to ES5 code, which is understood by all modern web browsers.
+            Babel allows you to compile your ES6 code down to ES5 code, which is understood by all modern web browsers.
+
+            This is a pre-compilation process, which is kind of like the pre-compilation step necessary for using CoffeeScript.
           </aside>
         </section>
 
@@ -123,7 +127,12 @@ people.forEach(person => {
             </code></pre>
             </p>
             <aside class="notes" data-markdown>
-              Say something here.
+              The first new feature is fat arrows.
+
+              Fat arrows are a new shortened function syntax.
+
+              Here, as you can see, we've lost the parenthesis around our argument and we've lost the word function.
+
             </aside>
           </section>
           <section>
@@ -139,7 +148,13 @@ people.forEach(person => {
             </code></pre>
             </p>
             <aside class="notes" data-markdown>
-              Say something here.
+              Fat arrow functions have an even shorter syntax.
+
+              Here in addition to losing the parenthesis and the word function, we've also lost the curly braces and the return statement.
+
+              In addition to being easier on the eyes, fat arrow functions inherit the "this" binding of their outer scope.
+
+              For anyone who has wrestled with JavaScript function binding, that's a really big deal.
             </aside>
           </section>
         </section>
@@ -158,18 +173,20 @@ console.log(`The year is ${date.getFullYear()}`);
             </code></pre>
             </p>
             <aside class="notes" data-markdown>
-              There's also string interpolation. This is like Python's format function but even more powerful.
+              With Template strings you can now do string interpolation in JavaScript.
 
-              This code would print "The year is 2015".
+              You create template strings using backticks and they act kind of like Ruby's double-quoted strings.
+
+              Remember that these backticks are strings.  This is not executing commands like backticks do in Ruby.
             </aside>
           </section>
           <section>
             <h2>Template Strings</h2>
             <p>
             <pre class="ruby"><code data-trim>
-poem = "Programming is fun
+poem = 'Programming is fun
 Except for syntax errors
-Missing curly brace"
+Missing curly brace'
             </code></pre>
             <pre class="javascript"><code data-trim>
 let poem = `Programming is fun
@@ -178,7 +195,7 @@ Missing curly brace`;
             </code></pre>
             </p>
             <aside class="notes" data-markdown>
-              JavaScript now has multi-line strings, just like Python.  They use a backtick instead of Python's familiar triple quotes.
+              Template strings also allow you to make multi-line strings, the same way all strings work in Ruby.
             </aside>
           </section>
         </section>
@@ -213,7 +230,9 @@ class Point {
             </code></pre>
             </p>
             <aside class="notes" data-markdown>
-              Say something here.
+              JavaScript now has a class notation which is somewhat similar to the one used by CoffeeScript.
+
+              Of course no class implementation is complete without a good foot gun.  So JavaScript also supports...
             </aside>
           </section>
           <section>
@@ -245,7 +264,11 @@ class ColorPoint extends Point {
             </code></pre>
             </p>
             <aside class="notes" data-markdown>
-              Say something here.
+              Inheritance!
+
+              So we can use extends to inherit classes and super to call methods in a parent class.
+
+              Under the hood, this is equivalent to the prototype inheritance currently supported by JavaScript.
             </aside>
           </section>
         </section>
@@ -268,7 +291,9 @@ function say(phrase, ...folks) {
             </code></pre>
             </p>
             <aside class="notes" data-markdown>
-              Say something here.
+              The *rest* operator is kind of like Ruby's splat operator.
+
+              When defining a function, we can use the rest operator (notated by three dots) to capture the rest of our function arguments.
             </aside>
           </section>
           <section>
@@ -286,7 +311,9 @@ shout("hello world", ...people);
             </code></pre>
             </p>
             <aside class="notes" data-markdown>
-              Say something here.
+              The spread operator is also like the splat operator.
+
+              When calling a function, we can use the spread operator to place an array of items into *separate* arguments in a function call.
             </aside>
           </section>
           <section>
@@ -304,9 +331,9 @@ var combined = [...first, ...second];
             </code></pre>
             </p>
             <aside class="notes" data-markdown>
-              You can also use this operator to unpack one array inside of another array.
+              You can also use the spread operator to unpack one array inside of another array.  This allows us to combine arrays easily.
 
-              In this example `combined` would be the array `[1, 2, 3, 4]`.
+              So in this example `combined` would be the array `[1, 2, 3, 4]`.
             </aside>
           </section>
         </section>
@@ -328,7 +355,9 @@ function greet(name='there') {
           </code></pre>
           </p>
           <aside class="notes" data-markdown>
-            Say something here.
+            JavaScript functions can now have default argument values.
+
+            This **does not** mean JavaScript has keyword arguments.  It doesn't.  These are just default values for positional arguments.
           </aside>
         </section>
 
@@ -346,7 +375,9 @@ x, y = [1, 2]
             </code></pre>
             </p>
             <aside class="notes" data-markdown>
-              Say something here.
+              With array destructuring, you can unpack arrays into multiple variables.
+
+              You can also use this for multiple assignment and for swapping variables.
             </aside>
           </section>
           <section>
@@ -354,19 +385,32 @@ x, y = [1, 2]
             <p>
             <pre class="ruby"><code data-trim>
 emoji = {category: "people", char: "😁", name: "smile"}
-char, name, category = emoji.values_at(:char, :name, :category)
+character, name, category = emoji.values_at(:char, :name, :category)
             </code></pre>
             </p>
             <p>
             <pre class="javascript"><code data-trim>
 let emoji = {category: "people", char: "😁", name: "smile"};
-let {name, category, char} = emoji;
+let {name, category, char: character} = emoji;
             </code></pre>
             </p>
             <aside class="notes" data-markdown>
-              Say something here.
+              There's also an object destructuring syntax.  This is a little bit awkward in Ruby but this is probably also considered to be a code smell in the Ruby world.
+
+              Temporary variables are probably a little more common JavaScript, so this can actually be a pretty useful feature.
             </aside>
           </section>
+        </section>
+
+        <section data-background="#f5da55" data-background-transition="fade" data-transition="zoom-in zoom-out">
+          <h1>Go Forth and Babel</h1>
+          <p>Learn ES2015: <a href="https://babeljs.io/docs/learn-es2015/">https://babeljs.io/docs/learn-es2015/</a></p>
+          <p>Try it out: <a href="http://babeljs.io/repl/">http://babeljs.io/repl</a></p>
+          <aside class="notes" data-markdown>
+            If you write JavaScript and you're not already sold on a JavaScript pre-processor like CoffeeScript, I think you should seriously consider Babel.
+
+            If you're interested in learning more about Babel or trying it out right from your web browser, you should check out the Babel website.
+          </aside>
         </section>
 
         <section style="text-align: left;" data-background="#663399" data-background-transition="slide" data-transition="slide">
