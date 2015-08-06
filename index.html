@@ -53,86 +53,141 @@
         </section>
 
         <section data-transition="fade-in slide-out">
-          <h2>each</h2>
-          <p>
-          <pre class="ruby"><code data-trim>
+          <h2>ECMAScript History</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Edition</th>
+                <th>Release Date</th>
+                <th>Browser Support</th>
+                <th>a.k.a.</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>3</td>
+              <td>Dec. 1999</td>
+              <td>All</td>
+              <td>ES3</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Dec. 2009</td>
+              <td>IE 9, FF 4, Chrome 7</td>
+              <td>ES5</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>June 2015</td>
+              <td>Not supported yet</td>
+              <td>ES2015</td>
+            </tr>
+            </tbody>
+          </table>
+          <aside class="notes" data-markdown>
+            First, some terminology.
+
+            ECMAScript is the language specification that JavaScript is based on.
+
+            ECMAScript 6 is the new version that was finalized last month.
+
+            Earlier this year, ECMAScript 6 was renamed to ECMAScript 2015.  During this talk I'll use ECMAScript 2015 and ECMAScript 6 interchangeably.
+          </aside>
+        </section>
+
+        <section data-background="#f5da55" data-background-transition="fade" data-transition="zoom-in zoom-out">
+          <a href="http://babeljs.io/"><img src="babel-logo.svg" class="no-style"></a>
+          <h3>Use next generation JavaScript, today.</h3>
+          <aside class="notes" data-markdown>
+            This new language spec isn't supported by browsers, but you **can** start using it today.
+
+            You just need to use Babel.  Babel allows you to compile your ES6 code down to ES5 code, which is understood by all modern web browsers.
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Fat Arrows</h2>
+            <p>
+            <pre class="ruby"><code data-trim>
 people.each do |person|
   puts person.name
 end
-          </code></pre>
-          </p>
-          <p>
-          <pre class="javascript"><code data-trim>
+            </code></pre>
+            </p>
+            <p>
+            <pre class="javascript"><code data-trim>
 people.forEach(person => {
   console.log(person.name);
 });
-          </code></pre>
-          </p>
-          <aside class="notes" data-markdown>
-            Say something here.
-          </aside>
+            </code></pre>
+            </p>
+            <aside class="notes" data-markdown>
+              Say something here.
+            </aside>
+          </section>
+          <section>
+            <h2>Fat Arrows</h2>
+            <p>
+            <pre class="ruby"><code data-trim>
+  users.select {|u| u.is_active}.map(&:name).sort
+            </code></pre>
+            </p>
+            <p>
+            <pre class="javascript"><code data-trim>
+  users.filter(u => u.isActive).map(u => u.name).sort();
+            </code></pre>
+            </p>
+            <aside class="notes" data-markdown>
+              Say something here.
+            </aside>
+          </section>
         </section>
 
         <section>
-          <h2>String Interpolation</h2>
-          <p>
-          <pre class="ruby"><code data-trim>
+          <section>
+            <h2>Template Strings</h2>
+            <p>
+            <pre class="ruby"><code data-trim>
 date = Time.now
 puts "The year is #{date.year}"
-          </code></pre>
-          <pre class="javascript"><code data-trim>
+            </code></pre>
+            <pre class="javascript"><code data-trim>
 let date = new Date();
 console.log(`The year is ${date.getFullYear()}`);
-          </code></pre>
-          </p>
-          <aside class="notes" data-markdown>
-            There's also string interpolation. This is like Python's format function but even more powerful.
+            </code></pre>
+            </p>
+            <aside class="notes" data-markdown>
+              There's also string interpolation. This is like Python's format function but even more powerful.
 
-            This code would print "The year is 2015".
-          </aside>
-        </section>
-
-        <section>
-          <h2>Multi-Line Strings</h2>
-          <p>
-          <pre class="ruby"><code data-trim>
+              This code would print "The year is 2015".
+            </aside>
+          </section>
+          <section>
+            <h2>Template Strings</h2>
+            <p>
+            <pre class="ruby"><code data-trim>
 poem = "Programming is fun
 Except for syntax errors
 Missing curly brace"
-          </code></pre>
-          <pre class="javascript"><code data-trim>
+            </code></pre>
+            <pre class="javascript"><code data-trim>
 let poem = `Programming is fun
 Except for syntax errors
 Missing curly brace`;
-          </code></pre>
-          </p>
-          <aside class="notes" data-markdown>
-            JavaScript now has multi-line strings, just like Python.  They use a backtick instead of Python's familiar triple quotes.
-          </aside>
-        </section>
-
-
-        <section>
-          <h2>select, map, sort</h2>
-          <p>
-          <pre class="ruby"><code data-trim>
-users.select {|u| u.is_active}.map(&:name).sort
-          </code></pre>
-          </p>
-          <p>
-          <pre class="javascript"><code data-trim>
-users.filter(u => u.isActive).map(u => u.name).sort();
-          </code></pre>
-          </p>
-          <aside class="notes" data-markdown>
-            Say something here.
-          </aside>
+            </code></pre>
+            </p>
+            <aside class="notes" data-markdown>
+              JavaScript now has multi-line strings, just like Python.  They use a backtick instead of Python's familiar triple quotes.
+            </aside>
+          </section>
         </section>
 
         <section>
-          <h2>classes</h2>
-          <p>
-          <pre class="ruby"><code data-trim>
+          <section>
+            <h2>Classes</h2>
+            <p>
+            <pre class="ruby"><code data-trim>
 class Point
   def initialize(x, y)
     @x = x
@@ -142,10 +197,10 @@ class Point
     "(#{@x}, #{@y})"
   end
 end
-          </code></pre>
-          </p>
-          <p>
-          <pre class="javascript"><code data-trim>
+            </code></pre>
+            </p>
+            <p>
+            <pre class="javascript"><code data-trim>
 class Point {
   constructor(x, y) {
     this.x = x;
@@ -155,17 +210,16 @@ class Point {
     return `(${this.x}, ${this.y})`;
   }
 }
-          </code></pre>
-          </p>
-          <aside class="notes" data-markdown>
-            Say something here.
-          </aside>
-        </section>
-
-        <section>
-          <h2>subclasses</h2>
-          <p>
-          <pre class="ruby"><code data-trim>
+            </code></pre>
+            </p>
+            <aside class="notes" data-markdown>
+              Say something here.
+            </aside>
+          </section>
+          <section>
+            <h2>Subclasses</h2>
+            <p>
+            <pre class="ruby"><code data-trim>
 class ColorPoint < Point
   def initialize(x, y, color)
     super(x, y)
@@ -175,10 +229,10 @@ class ColorPoint < Point
     "#{super()} in #{@color}"
   end
 end
-          </code></pre>
-          </p>
-          <p>
-          <pre class="javascript"><code data-trim>
+            </code></pre>
+            </p>
+            <p>
+            <pre class="javascript"><code data-trim>
 class ColorPoint extends Point {
   constructor(x, y, color) {
     super(x, y);
@@ -188,53 +242,53 @@ class ColorPoint extends Point {
     return `${super.toString()} in ${this.color}`;
   }
 }
-          </code></pre>
-          </p>
-          <aside class="notes" data-markdown>
-            Say something here.
-          </aside>
+            </code></pre>
+            </p>
+            <aside class="notes" data-markdown>
+              Say something here.
+            </aside>
+          </section>
         </section>
 
         <section>
-          <h2>splats</h2>
-          <p>
-          <pre class="ruby"><code data-trim>
+          <section>
+            <h2>Rest</h2>
+            <p>
+            <pre class="ruby"><code data-trim>
 def say(phrase, *folks)
   folks.each{|folk| puts "#{folk} said \"#{phrase}\""}
 end
-          </code></pre>
-          </p>
-          <p>
-          <pre class="javascript"><code data-trim>
+            </code></pre>
+            </p>
+            <p>
+            <pre class="javascript"><code data-trim>
 function say(phrase, ...folks) {
   folks.forEach(folk => console.log(`${folk} said "${phrase}"`));
 }
-          </code></pre>
-          </p>
-          <aside class="notes" data-markdown>
-            Say something here.
-          </aside>
-        </section>
-
-        <section>
-          <h2>splats</h2>
-          <p>
-          <pre class="ruby"><code data-trim>
+            </code></pre>
+            </p>
+            <aside class="notes" data-markdown>
+              Say something here.
+            </aside>
+          </section>
+          <section>
+            <h2>Spread</h2>
+            <p>
+            <pre class="ruby"><code data-trim>
 people = ["Bigelow", "Quil", "Trady Blix", "Lara"]
 shout("hello world", *people)
-          </code></pre>
-          </p>
-          <p>
-          <pre class="javascript"><code data-trim>
+            </code></pre>
+            </p>
+            <p>
+            <pre class="javascript"><code data-trim>
 people = ["Bigelow", "Quil", "Trady Blix", "Lara"];
 shout("hello world", ...people);
-          </code></pre>
-          </p>
-          <aside class="notes" data-markdown>
-            Say something here.
-          </aside>
-        </section>
-
+            </code></pre>
+            </p>
+            <aside class="notes" data-markdown>
+              Say something here.
+            </aside>
+          </section>
           <section>
             <h2>Combine Arrays</h2>
             <p>
@@ -258,7 +312,7 @@ var combined = [...first, ...second];
         </section>
 
         <section>
-          <h2>default arguments</h2>
+          <h2>Default Arguments</h2>
           <p>
           <pre class="ruby"><code data-trim>
 def greet(name = 'there')
@@ -279,39 +333,40 @@ function greet(name='there') {
         </section>
 
         <section>
-          <h2>array destructuring</h2>
-          <p>
-          <pre class="ruby"><code data-trim>
+          <section>
+            <h2>Array Destructuring</h2>
+            <p>
+            <pre class="ruby"><code data-trim>
 x, y = [1, 2]
-          </code></pre>
-          </p>
-          <p>
-          <pre class="javascript"><code data-trim>
+            </code></pre>
+            </p>
+            <p>
+            <pre class="javascript"><code data-trim>
 [x, y] = [1, 2];
-          </code></pre>
-          </p>
-          <aside class="notes" data-markdown>
-            Say something here.
-          </aside>
-        </section>
-
-        <section>
-          <h2>object destructuring</h2>
-          <p>
-          <pre class="ruby"><code data-trim>
+            </code></pre>
+            </p>
+            <aside class="notes" data-markdown>
+              Say something here.
+            </aside>
+          </section>
+          <section>
+            <h2>Object Destructuring</h2>
+            <p>
+            <pre class="ruby"><code data-trim>
 emoji = {category: "people", char: "😁", name: "smile"}
 char, name, category = emoji.values_at(:char, :name, :category)
-          </code></pre>
-          </p>
-          <p>
-          <pre class="javascript"><code data-trim>
+            </code></pre>
+            </p>
+            <p>
+            <pre class="javascript"><code data-trim>
 let emoji = {category: "people", char: "😁", name: "smile"};
 let {name, category, char} = emoji;
-          </code></pre>
-          </p>
-          <aside class="notes" data-markdown>
-            Say something here.
-          </aside>
+            </code></pre>
+            </p>
+            <aside class="notes" data-markdown>
+              Say something here.
+            </aside>
+          </section>
         </section>
 
         <section style="text-align: left;" data-background="#663399" data-background-transition="slide" data-transition="slide">
