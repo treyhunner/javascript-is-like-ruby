@@ -163,6 +163,39 @@ class Point {
         </section>
 
         <section>
+          <h2>subclasses</h2>
+          <p>
+          <pre class="ruby"><code data-trim>
+class ColorPoint < Point
+  def initialize(x, y, color)
+    super(x, y)
+    @color = color
+  end
+  def to_s
+    "#{super()} in #{@color}"
+  end
+end
+          </code></pre>
+          </p>
+          <p>
+          <pre class="javascript"><code data-trim>
+class ColorPoint extends Point {
+  constructor(x, y, color) {
+    super(x, y);
+    this.color = color;
+  }
+  toString() {
+    return `${super.toString()} in ${this.color}`;
+  }
+}
+          </code></pre>
+          </p>
+          <aside class="notes" data-markdown>
+            Say something here.
+          </aside>
+        </section>
+
+        <section>
           <h2>splats</h2>
           <p>
           <pre class="ruby"><code data-trim>
