@@ -73,6 +73,25 @@ people.forEach(person => {
         </section>
 
         <section>
+          <h2>String Interpolation</h2>
+          <p>
+          <pre class="python"><code data-trim>
+date = Time.now
+puts "The year is #{date.year}"
+          </code></pre>
+          <pre class="javascript"><code data-trim>
+let date = new Date();
+console.log(`The year is ${date.getFullYear()}`);
+          </code></pre>
+          </p>
+          <aside class="notes" data-markdown>
+            There's also string interpolation. This is like Python's format function but even more powerful.
+
+            This code would print "The year is 2015".
+          </aside>
+        </section>
+
+        <section>
           <h2>Multi-Line Strings</h2>
           <p>
           <pre class="ruby"><code data-trim>
@@ -180,6 +199,28 @@ shout("hello world", ...people);
           <aside class="notes" data-markdown>
             Say something here.
           </aside>
+        </section>
+
+          <section>
+            <h2>Combine Arrays</h2>
+            <p>
+            <pre class="python"><code data-trim>
+first = [1, 2]
+second = [3, 4]
+combined = first + second
+            </code></pre>
+            <pre class="javascript"><code data-trim>
+var first = [1, 2];
+var second = [3, 4];
+var combined = [...first, ...second];
+            </code></pre>
+            </p>
+            <aside class="notes" data-markdown>
+              You can also use this operator to unpack one array inside of another array.
+
+              In this example `combined` would be the array `[1, 2, 3, 4]`.
+            </aside>
+          </section>
         </section>
 
         <section>
